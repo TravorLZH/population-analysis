@@ -15,13 +15,15 @@ with open("population_csv.csv") as f:
 		"""elif int(row[0]) >= 1700:
 			break"""
 		try:
-			population.append(int(row[8]))
+			population.append(float(row[1]))
 		except ValueError:
 			print(row[0],": Missing Data")
 			continue
 		else:
 			year.append(int(row[0]))
 plt.plot(year,population)
+plt.xlim([-2000,2000])
+plt.ylim([0,5000])
 plt.xlabel("Year")
 plt.ylabel("Population (in millions)")
 plt.title("History of Population Change")
